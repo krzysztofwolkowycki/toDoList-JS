@@ -4,13 +4,24 @@ const inputAdd = document.querySelector('form input');
 const inputFilter = document.getElementById('searchTask');
 const numberTask = document.querySelector('h1 span');
 const ul = document.querySelector('ul');
+const liElements = document.querySelectorAll('li');
 
 
 
 const addTask = (e)=>{
-    e.preventDefault()
+    e.preventDefault();
+    const textTask = inputAdd.value;
+    console.log(textTask);
+    const task = document.createElement('li');
+    task.classList = 'task';
+    task.textContent = textTask;
+    task.innerHTML = textTask + '<button> Usuń</button>';
+    taskArr.push(task);
+    ul.appendChild(task);
+    inputAdd.value = '';
+    numberTask.textContent = taskArr.length;
 }
 
 
 
-form.addEventListener('submit', addTask)
+form.addEventListener('submit', addTask);
