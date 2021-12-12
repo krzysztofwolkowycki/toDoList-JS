@@ -6,7 +6,10 @@ const numberTask = document.querySelector('h1 span');
 const ul = document.querySelector('ul');
 const liElements = document.querySelectorAll('li');
 
-
+const removeTask = (e)=>{
+    e.target.parentNode.remove();
+    
+}
 
 const addTask = (e)=>{
     e.preventDefault();
@@ -20,6 +23,13 @@ const addTask = (e)=>{
     ul.appendChild(task);
     inputAdd.value = '';
     numberTask.textContent = taskArr.length;
+    task.document.querySelector('button').addEventListener('click', removeTask);
+
+    ul.textContent = '';
+    taskArr.forEach((element, key)=>{
+        element.dataset.key = key;
+        ul.appendChild(element);
+    })
 }
 
 
